@@ -17,19 +17,19 @@ Another thing to do is make sure that whatever file you are going to write to ne
 
 ## Demo
 
-// generic error catcher.
-var fail = function(evt) {
-    console.log(evt.target.error.code);
-};
+	// generic error catcher.
+	var fail = function(evt) {
+	    console.log(evt.target.error.code);
+	};
 
-window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-    fileSystem.root.getFile("example.pdf", {create: true, exclusive: false}, function(fileEntry) {
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+	    fileSystem.root.getFile("example.pdf", {create: true, exclusive: false}, function(fileEntry) {
 
-        // FileWrite won't write binary data, so we use our special binary file writer plugin.
-        // use btoa to base64 encode the binary data into a string that can be passed to the plugin.
-        plugins.binaryFileWriter.writeToFile(fileEntry.fullPath, btoa(output), function(bytes) {
-            console.log('file is written: ' + bytes);
-        });
+	        // FileWrite won't write binary data, so we use our special binary file writer plugin.
+	        // use btoa to base64 encode the binary data into a string that can be passed to the plugin.
+	        plugins.binaryFileWriter.writeToFile(fileEntry.fullPath, btoa(output), function(bytes) {
+	            console.log('file is written: ' + bytes);
+	        });
 
-    }, fail);
-}, fail);
+	    }, fail);
+	}, fail);
