@@ -12,7 +12,7 @@
     </engines>    
 
     <js-module src="BinaryFileWriter.js" name="BinaryFileWriter">
-        <clobbers target="cordova.plugins.BinaryFileWriter" />
+        <clobbers target="cordova.plugins.binaryFileWriter" />
     </js-module>
 
     <!-- ios -->
